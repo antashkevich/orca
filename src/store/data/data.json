@@ -1,0 +1,12 @@
+{
+  "group": {
+    "name": "Group by",
+    "items": ["Name", "File name", "IP Address v4", "IP Address v6", "Scan source"],
+    "icon": "symbol-sort"
+  },
+  "sort": {
+    "name": "Sort by",
+    "items": ["Name", "File name", "IP Address v4", "IP Address v6", "Scan source"],
+    "icon": "arrows-sort"
+  }
+}

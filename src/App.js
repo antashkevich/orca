@@ -1,8 +1,13 @@
-function App() {
+import React from 'react';
+import Header from './components/Header';
+
+const App = () => {
   return (
-    <div className="App">
-      
-    </div>
+    <React.Fragment>
+      <div className="container">
+        <Header />
+      </div>
+    </React.Fragment>
   );
 }
 
