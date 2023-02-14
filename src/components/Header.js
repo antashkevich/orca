@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
+import CheckLayout from './CheckLayout';
 import Dropdown from './Dropdown';
 import Icon from './Icon';
 
@@ -22,6 +23,7 @@ const Header = () => {
             </div>
             <Dropdown dropdown={data.group} />
             <Dropdown dropdown={data.sort} />
+            <CheckLayout />
           </div>
         </header>
       </div>
