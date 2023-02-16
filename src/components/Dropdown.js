@@ -8,7 +8,8 @@ const Dropdown = (props) => {
     setListActive(!isListActive)
   }
 
-  const handleBtn = () => {
+  const handleBtn = (e) => {
+    e.stopPropagation()
     setListActive(false)
   }
 
@@ -24,7 +25,7 @@ const Dropdown = (props) => {
           <ul className="dropdown-container__list">
             {props.dropdown.items.map((item, id) => 
               <li key={id} className="dropdown-container__list-item">
-                <button className="dropdown-container__list-btn" onClick={handleBtn}>{item}</button>
+                <button className="dropdown-container__list-btn" onClick={(e) => {handleBtn(e)}}>{item}</button>
               </li>
             )}
           </ul>

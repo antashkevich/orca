@@ -1,6 +1,6 @@
 body {
   font-family: "Mulish", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: $color-black;
   background-color: $color-bg;
   overflow-x: hidden;
@@ -29,9 +29,12 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid $color-grey;
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid $color-light-grey;
   padding-top: 16px;
   padding-bottom: 16px;
+  margin-bottom: 32px;
 }
 
 .header__logo {
@@ -42,6 +45,10 @@ button {
   svg {
     width: 100%;
     height: 100%;
+  }
+
+  &:hover {
+    opacity: 0.8;
   }
 }
 
@@ -59,7 +66,6 @@ button {
 }
 
 .additional-items__label {
-  font-size: 14px;
   line-height: 18px;
   position: relative;
   cursor: pointer;
@@ -74,10 +80,10 @@ button {
     top: 50%;
     transform: translateY(-50%);
     background: $color-white-light;
-    border: 1px solid $color-grey;
+    border: 1px solid $color-light-grey;
     border-radius: 2px;
     box-sizing: border-box;
-    transition: 0.3s;
+    transition: $transition;
   }
 
   &:hover {
@@ -116,16 +122,15 @@ button {
 }
 
 .dropdown-container__btn {
-  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   height: 30px;
   background-color: $color-white;
-  border: 1px solid $color-grey;
+  border: 1px solid $color-light-grey;
   border-radius: 4px;
-  transition: 0.3s;
+  transition: $transition;
   padding-left: 8px;
   padding-right: 8px;
 
@@ -143,15 +148,15 @@ button {
 .dropdown-container__icon {
   width: 12px;
   height: 12px;
-  fill: $color-grey;
-  transition: 0.3s;
+  fill: $color-light-grey;
+  transition: $transition;
 }
 
 .dropdown-container__icon-arrow {
   width: 8px;
   height: 6px;
-  fill: $color-grey;
-  transition: 0.3s;
+  fill: $color-light-grey;
+  transition: $transition;
 }
 
 .dropdown-container__icon-arrow_up {
@@ -176,7 +181,6 @@ button {
 }
 
 .dropdown-container__list-item {
-  font-size: 14px;
   line-height: 18px;
 }
 
@@ -199,10 +203,10 @@ button {
   width: 60px;
   gap: 4px;
   background-color: $color-white;
-  border: 1px solid $color-grey;
+  border: 1px solid $color-light-grey;
   border-radius: 4px;
   box-sizing: border-box;
-  transition: 0.3s;
+  transition: $transition;
   padding: 1px;
 }
 
@@ -213,7 +217,7 @@ button {
   flex-grow: 1;
   height: 100%;
   border-radius: 2px;
-  transition: 0.3s;
+  transition: $transition;
 
   &:hover {
     .check-container__btn-icon {
@@ -226,7 +230,7 @@ button {
   width: 12px;
   height: 12px;
   fill: $color-black;
-  transition: 0.3s;
+  transition: $transition;
 }
 
 .check-container__btn_active {
@@ -242,3 +246,322 @@ button {
     }
   }
 }
+
+// content
+.content__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+
+  .content__item_1 {
+    padding-left: 100px;
+  }
+}
+
+.content__header-items {
+  line-height: 18px;
+}
+
+.content__item_1 {
+  width: 17.2%;
+}
+
+.content__item_2 {
+  width: 14.3%;
+}
+
+.content__item_3 {
+  width: 13.6%;
+}
+
+.content__item_4 {
+  width: 16.2%;
+}
+
+.content__item_5 {
+  width: 24.5%;
+}
+
+.content__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.content-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $color-white;
+  border: 1px solid $color-light-grey;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  z-index: 5;
+  transition: $transition;
+
+  &:hover {
+    background-color: $color-black;
+
+    .content-item__icon-container,
+    .content-item__copy {
+      border-color: $color-white;
+    }
+
+    .content-item__icon,
+    .content-item__btn-copy-icon,
+    .content-item__btn-link-devorate-icon,
+    .content-item__btn-link-icon {
+      fill: $color-white;
+    }
+
+    .content-item__text,
+    .content-item__text span {
+      color: $color-white;
+    }
+
+    .content-item__btn-link:hover .content-item__text {
+      transition: $transition;
+      color: $color-blue;
+    }
+  }
+}
+
+.content-item {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.content__item_1 {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 32px;
+}
+
+.content__item_5 {
+  box-sizing: border-box;
+  padding-right: 24px;
+}
+
+.content-item__icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-right: 42px;
+}
+
+.content-item__icon-container_dangerous {
+  border-color: $color-dangerous;
+
+  .content-item__icon {
+    fill: $color-dangerous;
+  }
+}
+
+.content-item__icon-container_warning {
+  border-color: $color-warning;
+
+  .content-item__icon {
+    fill: $color-warning;
+  }
+}
+
+.content-item__icon-container_notice {
+  border-color: $color-notice;
+
+  .content-item__icon {
+    fill: $color-notice;
+  }
+}
+
+.content-item__icon {
+  width: 12px;
+  height: 12px;
+}
+
+.content-item__text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  span {
+    color: $color-light-grey;
+    margin-left: 4px;
+  }
+}
+
+.content-item__copy {
+  display: flex;
+  align-items: center;
+  border: 1px solid $color-light-grey;
+  border-radius: 4px;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 4px 8px;
+}
+
+.content-item__btn-copy {
+  width: 10px;
+  height: 12px;
+  flex-shrink: 0;
+  margin-left: 8px;
+
+  &:hover {
+    .content-item__btn-copy-icon {
+      fill: $color-blue;
+    }
+  }
+}
+
+.content-item__btn-copy-icon {
+  width: 100%;
+  height: 100%;
+  fill: $color-light-grey;
+  transition: $transition;
+}
+
+.content-item__btn-link {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  .content-item__text {
+    transition: $transition;
+  }
+
+  &:hover {
+    .content-item__text {
+      color: $color-blue;
+    }
+
+    .content-item__btn-link-icon {
+      fill: $color-blue;
+    }
+  }
+}
+
+.content-item__btn-link-devorate-icon {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  fill: $color-light-grey;
+  margin-right: 4px;
+}
+
+.content-item__btn-link-icon {
+  width: 9px;
+  height: 12px;
+  fill: $color-light-grey;
+  transition: $transition;
+  margin-left: 4px;
+}
+
+.content-item__additional-info {
+  width: 100%;
+  // height: 0px;
+  // max-height: 0;
+  position: relative;
+  top: -8px;
+  background: $color-white;
+  border: 1px solid $color-light-grey;
+  border-radius: 4px;
+  // transition: $transition;
+  box-sizing: border-box;
+  // overflow: auto;
+  // overflow-x: hidden;
+  display: none;
+}
+
+.content-item__additional-info_open {
+  // transition:  $transition;
+  // height: 100%;
+  // max-height: 208px;
+  display: block;
+
+  .content-item__additional-info-container {
+    height: 100%;
+    max-height: 208px;
+  }
+}
+
+.content-item__additional-info-container {
+  box-sizing: border-box;
+  overflow: auto;
+  overflow-x: hidden;  
+
+  & > div {
+    position: relative;
+    padding: 32px 32px 24px;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      right: -12px;
+      height: 100%;
+      width: 12px;
+      border-left: 1px solid $color-light-grey;
+      background-color: $color-scrollbar;
+    }
+  
+  }
+
+  
+  &::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: $color-scrollbar;
+    border-bottom-right-radius: 4px;
+    box-sizing: content-box;
+    margin-top: 8px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 12px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 6px;
+    box-sizing: border-box;
+    border: 3px solid $color-scrollbar;
+    border-radius: 100px;
+    background-color: $color-scrollbar-thumb;
+  }
+}
+
+.content-item__additional-info-title {
+  line-height: 18px;
+  color: $color-grey;
+  margin-bottom: 8px;
+}
+
+.content-item__additional-info-link {
+  line-height: 18px;
+  word-break: break-all;
+  margin-bottom: 16px;
+}
+
+.content-item__additional-info-btns {
+  right: 20px;
+  position: absolute;
+  bottom: 10px;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.content-item__additional-info-title {}
+
+.content-item__additional-info-title {}
