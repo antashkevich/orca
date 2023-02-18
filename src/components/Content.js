@@ -114,7 +114,7 @@ const Content = () => {
                 </div>
                 <div className="content-item__additional-info-btns">
                   <button className="content-item__additional-download-btn">Download</button>
-                  <Dropdown className="dropdown-container_blue" dropdown={data.download} />
+                  <Dropdown color="blue" dropdown={data.download} />
                   <button className="content-item__additional-cancel-btn" onClick={() => toggleAdditionalContainer(id)}>Cancel</button>
                 </div>
               </div>
