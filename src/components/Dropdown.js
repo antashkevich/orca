@@ -1,9 +1,9 @@
 import React from 'react';
 import Icon from './Icon';
 
-const Dropdown = (props, {className = ""}) => {
+const Dropdown = (props) => {
   return (
-    <div className={`dropdown-container ${className}`}>
+    <div className={`dropdown-container ${props.className ? props.className : ""}`}>
       <button className="dropdown-container__btn">
         <Icon className="dropdown-container__icon" name={props.dropdown.icon} />
         {props.dropdown.name}
