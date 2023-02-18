@@ -1,10 +1,12 @@
 import data from './data/data.json'
 const GET_ITEM_ID = 'GET_ITEM_ID'
+const GET_LAYOUT = 'GET_LAYOUT'
 
 const initialState = {
   data: { data },
   idItem: null,
-  isOpen: true
+  isOpen: true,
+  layout: "list"
 }
 
 
@@ -16,6 +18,12 @@ export const actions = (state = initialState, action = {}) => {
         ...state,
         idItem: action.payload.id,
         isOpen: action.payload.isOpen
+      }
+    }
+    case GET_LAYOUT: {
+      return {
+        ...state,
+        layout: action.payload,
       }
     }
     default:
@@ -32,5 +40,12 @@ export const changeItemId = (id, isOpen) => {
       id,
       isOpen
     }
+  }
+}
+
+export const changeLayout = (layoutName) => {
+  return {
+    type: GET_LAYOUT,
+    payload: layoutName
   }
 }

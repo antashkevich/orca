@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { changeLayout } from '../store/actions';
 import Icon from './Icon';
 
 const CheckLayout = () => {
+  const dispatch = useDispatch()
   const [isListLayoutActive, setListLayoutActive] = useState(true)
-  const [isGridLayoutActive, setGridLayoutActive] = useState(false)
 
   const checkLayout = (layout) => {
     if (layout === "list") {
       setListLayoutActive(true);
-      setGridLayoutActive(false);
+      dispatch(changeLayout(layout))
     } else {
       setListLayoutActive(false);
-      setGridLayoutActive(true);
+      dispatch(changeLayout(layout))
     }
   }
 
@@ -20,7 +22,7 @@ const CheckLayout = () => {
       <button className={`check-container__btn ${isListLayoutActive ? "check-container__btn_active" : ""}`} onClick={() => checkLayout("list")}>
         <Icon name="list" className="check-container__btn-icon" />
       </button>
-      <button  className={`check-container__btn ${isGridLayoutActive ? "check-container__btn_active" : ""}`} onClick={() => checkLayout("grid")}>
+      <button  className={`check-container__btn ${!isListLayoutActive ? "check-container__btn_active" : ""}`} onClick={() => checkLayout("grid")}>
         <Icon name="grid" className="check-container__btn-icon" />
       </button>
     </div>

@@ -12,12 +12,12 @@
   "download": {
     "name": "Download as",
     "items": ["Document", "Image", "PDF", "HTML"],
-    "icon": "arrows-sort"
+    "icon": "download"
   },
   "info": [
     {
       "name": "Luctus",
-      "status": "dangerous",
+      "status": "high",
       "file_name": "ppt",
       "file_size": "2Mb",
       "ip_address_v4": "38.21.46.43/5",
@@ -27,7 +27,7 @@
     },
     {
       "name": "Ante",
-      "status": "warning",
+      "status": "medium",
       "file_name": "tiff",
       "file_size": "10Mb",
       "ip_address_v4": "75.128.66.66/28",
@@ -37,7 +37,7 @@
     },
     {
       "name": "ElitProinInterdum",
-      "status": "warning",
+      "status": "medium",
       "file_name": "xls",
       "file_size": "3Mb",
       "ip_address_v4": "204.200.5.2/1",
@@ -47,7 +47,7 @@
     },
     {
       "name": "Non",
-      "status": "notice",
+      "status": "low",
       "file_name": "ppt",
       "file_size": "536Kb",
       "ip_address_v4": "127.234.110.193/28",
