@@ -18,6 +18,10 @@ const GlobalStyle = createGlobalStyle`
     user-select: none;
     -webkit-tap-highlight-color: transparent;
   }
+
+  p {
+    line-height: 18px;
+  }
   
   button {
     cursor: pointer;

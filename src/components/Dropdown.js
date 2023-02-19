@@ -7,50 +7,19 @@ const DropdownContainer = styled.div`
   position: relative;
 `;
 
-const DropdownBtn = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  height: 30px;
-  border: 1px solid ${styles.color_light_grey};
-  border-radius: 4px;
-  transition: ${styles.transition};
-  padding-left: 8px;
-  padding-right: 8px;
-
-  ${(props) => {
-    switch (props.color) {
-      case "blue":
-        return `
-          color: ${styles.color_white};
-          border-color: ${styles.color_blue};
-          background-color: ${styles.color_blue};
-        `;
-      default:
-        return `
-          background-color: ${styles.color_white};
-        `;
-    }
-  }}
-
-  ${DropdownContainer}:hover & {
-    border-color: ${styles.color_blue};
-  }
-`;
-
 const StyledIcon = styled(Icon)`
   fill: ${styles.color_light_grey};
   transition: ${styles.transition};
-
-  ${DropdownContainer}:hover & {
-    fill: ${styles.color_blue};
-  }
 
   ${(props) => {
     switch (props.name) {
       case "symbol-sort":
       case "arrows-sort":
+        return `
+          width: 12px;
+          height: 12px;
+        `;
+      case "download":
         return `
           width: 12px;
           height: 12px;
@@ -72,18 +41,95 @@ const StyledIcon = styled(Icon)`
   }}
 `
 
+const DropdownBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 30px;
+  border: 1px solid ${styles.color_light_grey};
+  border-radius: 4px;
+  transition: ${styles.transition};
+  padding-left: 8px;
+  padding-right: 8px;
+
+  ${(props) => {
+    switch (props.color) {
+      case "blue":
+        return `
+          color: ${styles.color_white};
+          border-color: ${styles.color_blue};
+          background-color: ${styles.color_blue};
+
+          ${StyledIcon} {
+            fill: ${styles.color_white};
+          }
+
+          ${DropdownContainer}:hover && {
+            box-shadow: 0px 0px 0px 2px ${styles.color_white_grey};
+
+            ${StyledIcon} {
+              fill: ${styles.color_white};
+            }
+          }
+        `;
+      default:
+        return `
+          background-color: ${styles.color_white};
+
+          ${DropdownContainer}:hover && {
+            border-color: ${styles.color_blue};
+        
+            ${StyledIcon} {
+              fill: ${styles.color_blue};
+            }
+          }
+        `;
+    }
+  }}
+`;
+
 const DropdownContainerList = styled.div`
   visibility: hidden;
   opacity: 0;
   position: absolute;
   top: 100%;
   right: 0;
-  width: 124%;
+  z-index: 30;
 
   ${DropdownContainer}:hover & {
     visibility: visible;
     opacity: 1;
   }
+
+  ${(props) => {
+    switch (props.color) {
+      case "blue":
+        return `
+          width: 100%;
+        `;
+      default:
+        return `
+          width: 124%;
+        `;
+    }
+  }}
+
+  ${(props) => {
+    if(props.isOpenUp) {
+      return `
+        @media all and (max-height: 680px) {
+          bottom: 100%;
+          top: auto;
+
+          ${DropdownList} {
+            margin-top: 0;
+            margin-bottom: 4px;
+          }
+        }
+      `
+    }
+  }}
 `;
 
 const DropdownList = styled.ul`
@@ -117,13 +163,13 @@ const DropdownListBtn = styled.button`
 
 const Dropdown = (props) => {
   return (
-    <DropdownContainer className={`dropdown-container`}>
+    <DropdownContainer>
       <DropdownBtn color={props.color}>
         <StyledIcon name={props.dropdown.icon} />
         {props.dropdown.name}
         <StyledIcon name="arrow" />
       </DropdownBtn>
-      <DropdownContainerList>
+      <DropdownContainerList color={props.color} isOpenUp>
         <DropdownList>
           {props.dropdown.items.map((item, id) => 
             <DropdownListItem key={id}>
